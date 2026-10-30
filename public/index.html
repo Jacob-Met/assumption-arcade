@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assumption Arcade</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>ASSUMPTION<span>ARCADE</span></h1>
+  <nav id="cabinets" aria-label="Theorem"></nav>
+  <div class="score" id="score" aria-live="polite"></div>
+</header>
+<main>
+  <section class="stage" aria-label="Graph">
+    <p class="theorem" id="statement"></p>
+    <div class="plot"><canvas id="plot" width="1000" height="560" role="img" aria-label="Graph of f on the chosen interval"></canvas></div>
+    <div id="verdict" class="verdict" aria-live="polite"></div>
+  </section>
+  <aside class="deck">
+    <h2>Assumptions <small>flip a switch to drop one</small></h2>
+    <ul id="switches" class="switches"></ul>
+    <form id="fn" autocomplete="off">
+      <label class="fx">f(x) = <input id="expr" spellcheck="false" aria-label="f of x"></label>
+      <div class="row">
+        <label>a <input id="pa" inputmode="decimal"></label>
+        <label>b <input id="pb" inputmode="decimal"></label>
+        <label id="ly">y <input id="py" inputmode="decimal"></label>
+      </div>
+      <div class="row" id="ends">
+        <label class="chk"><input type="checkbox" id="ca"> include a</label>
+        <label class="chk"><input type="checkbox" id="cb"> include b</label>
+      </div>
+    </form>
+    <div class="nem">
+      <button id="ask" type="button">Ask Nemotron for a counterexample</button>
+      <p id="nemstatus" class="nemstatus" aria-live="polite">Drop an assumption, then let the model try. The checker decides if it counts.</p>
+      <ol id="attempts" class="attempts"></ol>
+    </div>
+    <h2>Levels <small>known counterexamples</small></h2>
+    <ul id="levels" class="levels"></ul>
+  </aside>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
